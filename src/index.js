@@ -1,4 +1,13 @@
 import debounce from 'lodash.debounce'
+import { alert, error, defaultModules } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import * as PNotifyMobile from '@pnotify/mobile';
+import '@pnotify/mobile/dist/PNotifyMobile.css';
+import '@pnotify/core/dist/BrightTheme.css';
+ 
+defaultModules.set(PNotifyMobile, {});
+ 
+
 
 const inputEl = document.querySelector('.input')
 const listEl = document.querySelector('.list')
@@ -10,22 +19,40 @@ function onSearch(event) {
 
   console.log(event.target.value)
   const countryName = event.target.value
+  
 
   fetch(`https://restcountries.com/v3.1/name/${countryName}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      // Використовуйте отримані дані для відображення розмітки
+  .then(response => response.json())
+  .then(data => {
+    const countries = data.map(country => country.name.common);
+    const numCountries = countries.length;
+
+    if (numCountries > 1) {
+      listEl.innerHTML = countries.map(name => `<p>${name}</p>`).join('');
+      listEl.classList.add('list-1')
+    }
+
+    if (numCountries === 1) {
+      const country = data[0];
+      listEl.classList.add('list-1')
       listEl.innerHTML = `
-        <h1>${data[0].name.common}</h1>
-        <p>Capital: ${data[0].capital}</p>
-        <p>Population: ${data[0].population}</p>
-        <p>Region: ${data[0].region}</p>
-      `
-      if (listEl.childElementCount != 0 && event.target.value == 0)  {
-        console.log(видаляєм );
-      } 
-      
-})
+      <img src="${country.flags.png}" alt="${country.name.common} flag">
+    
+        <h1>${country.name.common}</h1>
+        <p>Capital: ${country.capital[0]}</p>
+        <p>Population: ${country.population}</p>
+        <p>Region: ${country.region}</p
+      `;
+    }
+  })
+.catch(error=> { alert("Ведіть щось нормальне!")} )
 
 }
+//  listEl.innerHTML = `
+      //   <h1>${data[0].name.common}</h1>
+      //   <p>Capital: ${data[0].capital}</p>
+      //   <p>Population: ${data[0].population}</p>
+      //   <p>Region: ${data[0].region}</p>
+      // `
+      
+    

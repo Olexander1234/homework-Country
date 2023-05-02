@@ -1,0 +1,51 @@
+.input {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+  
+  .list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 2rem;
+
+    border-radius: 1rem;
+    
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .list:hover {
+    transform: scale(1.05);
+  }
+  
+  .list img {
+    width: 10rem;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .list h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .list p {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .list-1{
+    border: 1px solid #ccc;
+  }

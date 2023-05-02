@@ -2,7 +2,8 @@
   "dependencies": {
     "hbs": "^4.2.0",
     "json-server": "^0.17.3",
-    "lodash.debounce": "^4.0.8"
+    "lodash.debounce": "^4.0.8",
+    "pnotify": "^5.2.0"
   },
   "name": "homework-country",
   "description": "",
