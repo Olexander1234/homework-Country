@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/Olexander1234/homework-Country/issues"
   },
-  "homepage": "https://github.com/Olexander1234/homework-Country#readme",
+  "homepage": "https://github.com/Olexander1234/homework-Country",
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
