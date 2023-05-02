@@ -43,7 +43,9 @@ function onSearch(event) {
         <p>Population: ${country.population}</p>
         <p>Region: ${country.region}</p
       `;
+
     }
+    
   })
 .catch(error=> { alert("Ведіть щось нормальне!")} )
 
